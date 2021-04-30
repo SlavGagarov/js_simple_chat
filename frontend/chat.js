@@ -1,5 +1,5 @@
 var socket = io('https://desolate-wave-75104.herokuapp.com/');
-//var socket = io();
+//var socket = io('http://localhost:3000/');
 
 let message = document.getElementById('message');
 let chatroom = document.getElementById('chatroom');
@@ -14,9 +14,6 @@ socket.on('update', function(data) {
     li.textContent = data;
     chatroom.appendChild(li);
 });
-
-
-
 
 send_message.onclick = function(){
     console.log("clicked");
