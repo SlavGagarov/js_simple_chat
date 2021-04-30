@@ -1,5 +1,5 @@
-//var socket = io('https://desolate-wave-75104.herokuapp.com/');
-var socket = io();
+var socket = io('https://desolate-wave-75104.herokuapp.com/');
+//var socket = io();
 
 let message = $("#message");
 let chatroom = document.getElementById('chatroom');
