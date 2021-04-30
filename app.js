@@ -1,9 +1,12 @@
-const express = require('express');
-const app = express();
+const port = 3000;
 const http = require('http');
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+const express = require('express');
+const socketIO = require('socket.io');
+var app = express();
+var server = http.Server(app);
+var io = socketIO(server);
+
+app.set('port', port);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
@@ -17,15 +20,21 @@ app.get('/modalScript.js', (req, res) => {
   res.sendFile(__dirname + '/modalScript.js');
 });
 
-server.listen(3000, () => {
-  console.log('listening on *:3000');
+server.listen(port, function() {
+  console.log('Hosting Server at port ' + port);
 });
 
 
 const connnections = [];
 
 io.on('connection', (socket) => {
-    console.log('New user connected');
-    connnections.push(socket)
-    socket.username = 'Anonymous';
+  socket.on('chatter connected', function(name, color) {
+    console.log('chatter connected');
+    connnections.push(socket);
+  });
+
+  socket.on('update', function(data) {
+    console.log('update');
+    io.sockets.emit('update', data);
+  });  
 })
