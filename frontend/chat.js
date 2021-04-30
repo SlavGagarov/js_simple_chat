@@ -1,9 +1,9 @@
 var socket = io('https://desolate-wave-75104.herokuapp.com/');
 //var socket = io();
 
-let message = $("#message");
+let message = document.getElementById('message');
 let chatroom = document.getElementById('chatroom');
-let send_message = $("#send_message");
+let send_message = document.getElementById('send_message');
 
 socket.emit('chatter connected', 'Slav');
 
@@ -18,7 +18,7 @@ socket.on('update', function(data) {
 
 
 
-send_message.click(function(){
+send_message.onclick = function(){
     console.log("clicked");
-    socket.emit('update', message.val());
-});
+    socket.emit('update', message.value);
+};
