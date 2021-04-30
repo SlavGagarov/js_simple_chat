@@ -5,19 +5,16 @@ const socketIO = require('socket.io');
 var app = express();
 var server = http.Server(app);
 var io = socketIO(server);
+path = require('path')
 
 app.set('port', port);
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 app.get('/chat.js', (req, res) => {
-  res.sendFile(__dirname + '/chat.js');
-});
-
-app.get('/modalScript.js', (req, res) => {
-  res.sendFile(__dirname + '/modalScript.js');
+  res.sendFile(path.join(__dirname, '../frontend/chat.js'));
 });
 
 server.listen(port, function() {
