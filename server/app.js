@@ -3,8 +3,8 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 var app = express();
-var server = http.Server(app);
-var io = socketIO(server);
+const server = http.createServer(app);
+const io = socketIO(server, {transports: ['websocket']});
 path = require('path')
 
 app.set('port', port);
