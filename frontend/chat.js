@@ -1,4 +1,4 @@
-var socket = io('https://desolate-wave-75104.herokuapp.com/', {transports: ['websocket']});
+var socket = io('https://desolate-wave-75104.herokuapp.com/');
 //var socket = io('http://localhost:3000/');
 
 let message = document.getElementById('message');
