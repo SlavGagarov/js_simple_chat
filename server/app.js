@@ -1,4 +1,4 @@
-const port = 3000;
+var port = process.env.PORT || 3000;
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
@@ -17,7 +17,7 @@ app.get('/chat.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/chat.js'));
 });
 
-server.listen(process.env.port || port, function() {
+server.listen(port, function() {
   console.log('Hosting Server at port ' + port);
 });
 
