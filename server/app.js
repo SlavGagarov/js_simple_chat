@@ -17,7 +17,7 @@ app.get('/chat.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/chat.js'));
 });
 
-server.listen(port, function() {
+server.listen(process.env.port || port, function() {
   console.log('Hosting Server at port ' + port);
 });
 
