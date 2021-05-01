@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <title>Simple Chat App</title>
-    <style>
-        li{
-            list-style-type: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Slav Chat</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <style>
+    li{
+        list-style-type: none;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="input_zone">
-        <input id="message" class="vertical-align custom-input" type="text" />
-       <button id="send_message" class="vertical-align btn" type="button">Send</button>
-    </div>
+  <div id="input_zone">
+    <input id="message" class="vertical-align custom-input" type="text" />
+    <button id="send_message" class="vertical-align btn" type="button">Send</button>
+  </div>
 
-    <ul id="chatroom">
-    </ul>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="./chat.js"></script>
+  <ul id="chatroom">
+  </ul>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script src="chat.js"></script>
 </body>
 </html>

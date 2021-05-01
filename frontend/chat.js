@@ -1,21 +1,16 @@
-var socket = io('https://desolate-wave-75104.herokuapp.com/');
-//var socket = io('http://localhost:3000/');
+const socket = io('https://desolate-wave-75104.herokuapp.com/');
+//const socket = io('http://localhost:3000/');
 
-let message = document.getElementById('message');
-let chatroom = document.getElementById('chatroom');
-let send_message = document.getElementById('send_message');
-
-socket.emit('chatter connected', 'Slav');
-
+const message = document.getElementById('message');
+const send_message = document.getElementById('send_message');
+send_message.addEventListener('click', sendMsg);
+function sendMsg(){
+  socket.emit('update', message.value);
+}
 socket.on('update', function(data) {
-    console.log('client update');
+  console.log('client update');
 
-    let li = document.createElement('li');
-    li.textContent = data;
-    chatroom.appendChild(li);
+  let li = document.createElement('li');
+  li.textContent = data;
+  chatroom.appendChild(li);
 });
-
-send_message.onclick = function(){
-    console.log("clicked");
-    socket.emit('update', message.value);
-};
